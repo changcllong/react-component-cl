@@ -4,15 +4,15 @@ import './index.scss';
 
 const Main = (props) => {
     return (
-        <ul className="cl-main-container">
-            <li className="cl-main-item">
+        <ul className="cl-list-main">
+            <li className="cl-list-item-main">
                 <Link to="/map">leaflet</Link>
             </li>
-            <li className="cl-main-item">
-                todo
+            <li className="cl-list-item-main">
+                <Link to="/list">animate</Link>
             </li>
-            <li className="cl-main-item">c</li>
-            <li className="cl-main-item">d</li>
+            <li className="cl-list-item-main">c</li>
+            <li className="cl-list-item-main">d</li>
         </ul>
     );
 }

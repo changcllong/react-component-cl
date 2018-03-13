@@ -16,9 +16,10 @@ import {
     Link
 } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
-import '../common/index.scss';
+import './index.scss';
 import Main from  './main';
 import Map from './map';
+import List from './list';
 
 if (module.hot) {
     module.hot.accept();
@@ -30,6 +31,7 @@ ReactDOM.render(
             <div>
                 <Route exact path="/" component={Main} />
                 <Route path="/map" component={Map} />
+                <Route path="/list" component={List} />
             </div>
         </Router>
     ),

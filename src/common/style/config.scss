@@ -1,0 +1,32 @@
+@mixin cl-list-item(
+    $name: default,
+    $border: default,
+    $padding: default
+) {
+    $name: if($name == default, "", "-#{$name}");
+    .cl-list-item#{$name} {
+        @if $border != default {
+            border-right: $border;
+            border-bottom: $border;
+        }
+        padding: if($padding == default, 10px, $padding);
+        @content;
+    }
+}
+
+@mixin cl-list(
+    $name: default,
+    $border: default,
+    $padding: default
+) {
+    $list-name: if($name == default, "", "-#{$name}");
+    .cl-list#{$list-name} {
+        position: relative;
+        @if $border != default {
+            border-top: $border;
+            border-left: $border;
+        }
+        @include cl-list-item($name, $border, $padding);
+        @content;
+    }
+}

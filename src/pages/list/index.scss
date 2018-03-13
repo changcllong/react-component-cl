@@ -1,0 +1,53 @@
+@import "../../common/style/config.scss";
+
+.cl-anima-list {
+    &-enter {
+        padding: 0;
+        height: 0;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+    &-enter-active {
+        height: 22px;
+        padding: 10px;
+        font-size: 16px;
+        transition: all .5s ease-out;
+    }
+
+    &-exit {
+        height: 22px;
+        padding: 10px;
+        font-size: 16px;
+        overflow: hidden;
+    }
+
+    &-exit-active {
+        padding: 0px;
+        height: 0;
+        font-size: 0;
+        transition: all .5s ease-in-out;
+    }
+}
+
+.cl-block {
+    height: 200px;
+    width: 200px;
+    background-color: plum;
+}
+
+.cl-anima-block {
+    &-enter {
+        height: 0;
+    }
+
+    &-enter-active {
+        height: 200px;
+        transition: all 3s ease-out;
+    }
+
+    &-exit-active {
+        height: 0;
+        transition: all 3s ease-in;
+    }
+}
