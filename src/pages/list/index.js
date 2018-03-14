@@ -44,6 +44,7 @@ export default class List extends Component {
     }
 
     onEntering(node, onEntered) {
+        node.scrollTop;
         node.className = 'cl-block cl-anima-block-enter cl-anima-block-enter-active';
         setTimeout(() => {
             onEntered && onEntered();
