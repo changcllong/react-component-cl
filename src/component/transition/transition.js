@@ -13,7 +13,9 @@ export default class Transition extends Component {
         this.state = {
             status: EXITED
         };
-        this.nextStatus = ENTERING;
+        if (props.in) {
+            this.nextStatus = ENTERING;
+        }
     }
 
     setNextCallback(callBack) {

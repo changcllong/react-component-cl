@@ -19,7 +19,14 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import './index.scss';
 import Main from  './main';
 import Map from './map';
-import List from './list';
+import Bundle from '../component/bundle';
+//import List from './list';
+
+const List = (props) => (
+    <Bundle load={() => import('./list')}>
+        {(List) => <List {...props}/>}
+    </Bundle>
+);
 
 if (module.hot) {
     module.hot.accept();

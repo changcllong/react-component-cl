@@ -14,26 +14,19 @@ module.exports = {
     context: SRC_PATH,
 
     resolve: {
-        extensions: ['.js', '.jsx'] // 同时支持 js 和 jsx
+        extensions: ['.js', '.jsx'], // 同时支持 js 和 jsx
+
     },
 
     entry: {
-        index: ['./pages/index.js'],
-        vendor: [
-            'babel-polyfill',
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'prop-types',
-            'mobx'
-        ]
+        index: ['./pages/index.js']
     },
 
     output: {
         path: ASSETS_BUILD_PATH,
         publicPath: ASSETS_PUBLIC_PATH,
-        filename: './[name].js',
-        chunkFilename: './[name].js',
+        filename: '[name].js',
+        chunkFilename: '[name].js',
     },
 
     module: {
@@ -62,8 +55,7 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options:
-                        {
+                        options: {
                             limit: 8192,
                             mimetype: 'application/font-woff',
                             name: 'fonts/[name].[ext]'
@@ -73,12 +65,10 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                use:
-                [
+                use: [
                     {
                         loader: 'file-loader',
-                        options:
-                        {
+                        options: {
                             limit: 8192,
                             mimetype: 'application/font-woff',
                             name: 'fonts/[name].[ext]'
@@ -89,11 +79,34 @@ module.exports = {
         ]
     },
 
+    optimization: {
+        runtimeChunk: {
+            name: 'manifest'
+        },
+        splitChunks: {
+            chunks: "async",
+            minSize: 50000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            name: true,
+            cacheGroups: {
+                vendors: {
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'initial',
+                    priority: -10,
+                    enforce: true
+                }
+            }
+        }
+    },
+
     plugins: [
-        new CleanWebpackPlugin([ASSETS_BUILD_PATH], { verbose: false }),
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'manifest'],
-            minChunks: Infinity
-        })
+        new CleanWebpackPlugin([ASSETS_BUILD_PATH], { verbose: false })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     names: ['vendor', 'manifest'],
+        //     minChunks: Infinity
+        // })
     ]
 };

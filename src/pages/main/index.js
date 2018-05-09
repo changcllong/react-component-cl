@@ -6,10 +6,10 @@ const Main = (props) => {
     return (
         <ul className="cl-list-main">
             <li className="cl-list-item-main">
-                <Link to="/map">leaflet</Link>
+                <Link to="/list">transition</Link>
             </li>
             <li className="cl-list-item-main">
-                <Link to="/list">animate</Link>
+                <Link to="/map">leaflet</Link>
             </li>
             <li className="cl-list-item-main">c</li>
             <li className="cl-list-item-main">d</li>
