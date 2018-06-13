@@ -32,7 +32,7 @@ if (module.hot) {
     module.hot.accept();
 }
 
-ReactDOM.render(
+ReactDOM.hydrate(
     (
         <Router>
             <div>

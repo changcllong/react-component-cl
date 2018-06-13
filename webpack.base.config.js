@@ -15,7 +15,6 @@ module.exports = {
 
     resolve: {
         extensions: ['.js', '.jsx'], // 同时支持 js 和 jsx
-
     },
 
     entry: {
