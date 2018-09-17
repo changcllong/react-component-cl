@@ -20,7 +20,8 @@ import './index.scss';
 import Main from  './main';
 import Map from './map';
 import Bundle from '../component/bundle';
-//import List from './list';
+import PrintContainer from './print';
+import { matchRoutes } from 'react-router-config';
 
 const List = (props) => (
     <Bundle load={() => import('./list')}>
@@ -32,13 +33,52 @@ if (module.hot) {
     module.hot.accept();
 }
 
-ReactDOM.hydrate(
+const routes = [
+    { 
+        component: () => <div></div>,
+        routes: [
+            { 
+                path: '/',
+                exact: true,
+                component: Main
+            },
+            { 
+                path: '/child/:id',
+                component: List,
+                routes: [
+                    { 
+                        path: '/child/:id/grand-child',
+                        component: PrintContainer
+                    }
+                ]
+            }
+        ]
+    }
+];
+
+const branch = matchRoutes(routes, '/child/23');
+
+console.log(branch);
+
+ReactDOM.render(
     (
         <Router>
             <div>
                 <Route exact path="/" component={Main} />
                 <Route path="/map" component={Map} />
                 <Route path="/list" component={List} />
+                <Route path="/print" component={PrintContainer} />
+                <Route location={{ pathname: '/list' }} render={(route) => {
+                    console.log(route);
+                    return (
+                        <div>
+                            <Route path="/list" render={(route) => {
+                                console.log(route);
+                                return <span>test</span>
+                            }} />
+                        </div>
+                    );
+                }} />
             </div>
         </Router>
     ),

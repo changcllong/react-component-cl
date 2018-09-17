@@ -1,0 +1,11 @@
+
+.cl-print-main {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .cl-print-body {
+        flex: 1;
+        text-align: center;
+    }
+}

@@ -6,6 +6,7 @@ import './index.scss';
 export default class List extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.onClick = this.onClick.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.toggleExpand = this.toggleExpand.bind(this);
@@ -14,6 +15,39 @@ export default class List extends Component {
             expand: [true, true]
         };
     }
+
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     console.log('getDerivedStateFromProps', nextProps, prevState);
+    // }
+
+    // getSnapshotBeforeUpdate(prevProps, prevState) {
+    //     console.log('getSnapshotBeforeUpdate', prevProps, prevState);
+    // }
+
+    // componentWillReceiveProps() {
+    //     console.log('componentWillReceiveProps');
+    // }
+
+    // shouldComponentUpdate() {
+    //     console.log('shouldComponentUpdate');
+    //     return true;
+    // }
+
+    // componentWillUpdate() {
+    //     console.log('componentWillUpdate');
+    // }
+
+    // componentWillMount() {
+    //     console.log('componentWillMount');
+    // }
+
+    // componentDidMount() {
+    //     console.log('componentDidMount');
+    // }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log('componentDidUpdate', prevProps, prevState);
+    // }
 
     onClick() {
         const _listItem = this.state.listItem.slice();
@@ -63,6 +97,7 @@ export default class List extends Component {
     }
 
     render() {
+        console.log('render');
         const { listItem, expand } = this.state;
         return (
             <section>

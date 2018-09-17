@@ -12,5 +12,7 @@ module.exports = function(config) {
         vendor: ['node_modules']
     };
 
+    config.prd.minimizer = false;
+
     return config;
 };
