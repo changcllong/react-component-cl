@@ -1,0 +1,45 @@
+@import "../../common/style/config.scss";
+
+.cl-map-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .cl-map-content {
+        width: 200px;
+        height: 100px;
+        background-color: coral;
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // transform: translate(-50%, -50%);
+    }
+}
+
+.cl-map-wrapper {
+    overflow: hidden;  //清除浮动
+}
+.cl-map-middle {
+    width: 100%;
+    float: left;
+}
+.cl-map-middle .cl-map-main {
+    margin: 0 220px;
+    background: red;
+}
+.cl-map-left {
+    width: 200px;
+    height: 300px;
+    float: left;
+    background: green;
+    margin-left: -100%;
+}
+.cl-map-right {
+    width: 200px;
+    height: 300px;
+    float: left;
+    background: yellow;
+    margin-left: -200px;
+}
+

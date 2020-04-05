@@ -1,3 +1,11 @@
 @import "../../common/style/config.scss";
 
-@include cl-list(main);
+@include cl-list(main) {
+    overflow: auto;
+};
+
+@include cl-list-item(main) {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+}

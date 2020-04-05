@@ -10,6 +10,10 @@ export default class PrintContainer extends Component {
         }
     }
 
+    componentWillUnmount() {
+        console.log('PrintContainer', 'componentWillUnmount');
+    }
+
     print(open) {
         this.setState({
             print: open

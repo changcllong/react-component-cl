@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cl-pack dev",
-    "build": "cl-pack"
+    "start": "npm run clean && cl-pack dev -c ./config/pack.config.dev.js",
+    "build": "npm run clean && cl-pack -c ./config/pack.config.js",
+    "clean": "rm -rf ./dist"
   },
   "repository": {
     "type": "git",
@@ -19,27 +20,21 @@
   },
   "homepage": "https://github.com/changcllong/react-component-cl#readme",
   "dependencies": {
-    "mobx": "^3.4.1",
-    "prop-types": "^15.6.0",
-    "rc-animate": "^2.4.4",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router-config": "^1.0.0-beta.4",
-    "react-router-dom": "^4.2.2",
-    "react-transition-group": "^2.2.1",
-    "velocity-animate": "^1.5.0"
+    "@babel/polyfill": "^7.8.7",
+    "antd": "^4.0.2",
+    "mobx": "^5.13.0",
+    "prop-types": "^15.7.2",
+    "rc-animate": "^2.10.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-config": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-transition-group": "^4.3.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "cl-pack": "0.0.2-3",
-    "node-sass": "^4.7.2",
-    "postcss-loader": "^2.1.5",
-    "react-hot-loader": "^3.1.3",
-    "sass-loader": "^6.0.7"
+    "@types/react": "^16.9.23",
+    "@babel/preset-react": "^7.8.3",
+    "cl-pack": "0.0.3-beta.0",
+    "postcss-loader": "^2.1.5"
   }
 }

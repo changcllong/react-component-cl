@@ -1,21 +1,19 @@
 
-import 'babel-polyfill';
+import '@babel/polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// import {
+//     observable,
+//     computed,
+//     action,
+//     autorun,
+//     transaction,
+//     toJS
+// } from 'mobx';
 import {
-    observable,
-    computed,
-    action,
-    autorun,
-    transaction,
-    toJS
-} from 'mobx';
-import {
-    HashRouter as Router,
-    Route,
-    Link
+    BrowserRouter as Router,
+    Route
 } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
 import './index.scss';
 import Main from  './main';
 import Map from './map';
@@ -68,17 +66,6 @@ ReactDOM.render(
                 <Route path="/map" component={Map} />
                 <Route path="/list" component={List} />
                 <Route path="/print" component={PrintContainer} />
-                <Route location={{ pathname: '/list' }} render={(route) => {
-                    console.log(route);
-                    return (
-                        <div>
-                            <Route path="/list" render={(route) => {
-                                console.log(route);
-                                return <span>test</span>
-                            }} />
-                        </div>
-                    );
-                }} />
             </div>
         </Router>
     ),

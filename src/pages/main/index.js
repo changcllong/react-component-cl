@@ -24,12 +24,11 @@ export default class Main extends Component {
                     <Link to="/list">transition</Link>
                 </li>
                 <li className="cl-list-item-main">
-                    <Link to="/map">leaflet</Link>
+                    <Link to="/map">map</Link>
                 </li>
                 <li className="cl-list-item-main">
                     <Link to="/print">print</Link>
                 </li>
-                <li className="cl-list-item-main">d</li>
             </ul>
         );
     }
